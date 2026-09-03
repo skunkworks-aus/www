@@ -1,0 +1,24 @@
+﻿{
+  "version": 1,
+  "canonicalHosts": {
+    "corporate": "https://skunkworks-aus.github.io/www",
+    "academy": "https://www.skunkworksacademy.com",
+    "globalAfrica": "https://www.skunkworks.africa"
+  },
+  "rules": [
+    "Corporate identity, USA services, secure infrastructure, AI, cyber, public-sector, and defense-adjacent content belong on skunkworks-aus.github.io/www.",
+    "Training catalogues, labs, credentials, and learner services belong on www.skunkworksacademy.com.",
+    "Africa regional services and broader Skunkworks Africa ecosystem content belong on www.skunkworks.africa.",
+    "Every indexable USA page must emit a self-referencing canonical URL.",
+    "Navigation order is Solutions, Cybersecurity, AI & Cloud, Infrastructure, Training, Contact.",
+    "Mobile navigation must expose the same primary destinations as desktop navigation."
+  ],
+  "primaryNavigation": [
+    {"label": "Solutions", "url": "/#solutions", "surface": "corporate"},
+    {"label": "Cybersecurity", "url": "/#cybersecurity", "surface": "corporate"},
+    {"label": "AI & Cloud", "url": "/#ai-cloud", "surface": "corporate"},
+    {"label": "Infrastructure", "url": "/#infrastructure", "surface": "corporate"},
+    {"label": "Training", "url": "/#training", "surface": "academy"},
+    {"label": "Contact", "url": "/#contact", "surface": "corporate"}
+  ]
+}
