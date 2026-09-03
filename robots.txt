@@ -1,4 +1,5 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://skunkworksau.au/sitemap.xml
+Sitemap: https://skunkworks-aus.github.io/www/sitemap.xml
+
