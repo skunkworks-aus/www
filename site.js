@@ -77,7 +77,7 @@
     const subject = `Skunkworks Australia enquiry: ${query}`;
     const body = `I need help with: ${query}\n\nPlease route this to the appropriate Skunkworks Australia capability.`;
 
-    window.location.href = `mailto:sales@skunkworksau.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@skunkworksau.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   button?.addEventListener('click', () => {
