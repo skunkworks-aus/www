@@ -1,12 +1,12 @@
 ﻿{
   "version": 1,
   "canonicalHosts": {
-    "corporate": "https://skunkworks-aus.github.io/www",
+    "corporate": "https://www.skunkworksau.com.au",
     "academy": "https://www.skunkworksacademy.com",
     "globalAfrica": "https://www.skunkworks.africa"
   },
   "rules": [
-    "Corporate identity, USA services, secure infrastructure, AI, cyber, public-sector, and defense-adjacent content belong on skunkworks-aus.github.io/www.",
+    "Corporate identity, USA services, secure infrastructure, AI, cyber, public-sector, and defense-adjacent content belong on www.skunkworksau.com.au.",
     "Training catalogues, labs, credentials, and learner services belong on www.skunkworksacademy.com.",
     "Africa regional services and broader Skunkworks Africa ecosystem content belong on www.skunkworks.africa.",
     "Every indexable USA page must emit a self-referencing canonical URL.",
