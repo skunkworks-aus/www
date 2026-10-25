@@ -70,7 +70,7 @@
     }
 
     if (storeTerms.some((term) => normalized.includes(term))) {
-      window.location.href = `https://store.skunkworksau.au/search?q=${encodeURIComponent(query)}`;
+      window.location.href = `https://store.skunkworksau.com.au/search?q=${encodeURIComponent(query)}`;
       return;
     }
 
