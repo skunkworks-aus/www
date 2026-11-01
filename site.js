@@ -17,6 +17,7 @@
     el.innerHTML=words.map(function(w,i){return '<span class="w" aria-hidden="true" style="--i:'+i+'">'+w+'</span>'}).join(' ');
   });
 
+  if(hero){
   // Hero gates: must match the CSS media query list exactly.
   var GATES=['(max-width: 720px)','(orientation: portrait) and (max-width: 1024px)','(orientation: portrait) and (pointer: coarse)','(orientation: landscape) and (pointer: coarse) and (max-height: 560px)','(prefers-reduced-motion: reduce)'];
   var MQLS=GATES.map(function(q){return matchMedia(q)});
@@ -79,9 +80,11 @@
   }
   applyHeroMode();
 
+  }
+
   // Nav turns solid once past the top of the hero.
   var navSolid=null;
-  function navState(){var s=scrollY>innerHeight*0.6;if(s!==navSolid){nav.classList.toggle('solid',s);navSolid=s}}
+  function navState(){var s=hero?scrollY>innerHeight*0.6:true;if(s!==navSolid){nav.classList.toggle('solid',s);navSolid=s}}
   addEventListener('scroll',navState,{passive:true}); navState();
 
   // Section entrances: once, then retire the stagger so hovers are instant.
@@ -107,18 +110,13 @@
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);mb.focus()}});
   matchMedia('(min-width: 901px)').addEventListener('change',function(e){if(e.matches)setMenu(false)});
 
-  // Check-up topics: jump to the form with the topic filled in
-  document.querySelectorAll('[data-topic]').forEach(function(a){
-    a.addEventListener('click',function(){
-      var m=document.getElementById('m'), t=a.getAttribute('data-topic');
-      var line='I’d like help with: '+t+'.';
-      if(m.value.indexOf(t)===-1) m.value=m.value?(m.value+'\n'+line):line;
-    });
-  });
+  // Topic passed from the homepage check-up list (book.html?topic=...)
+  var msg=document.getElementById('m'), topic=new URLSearchParams(location.search).get('topic');
+  if(msg && topic){ msg.value='I’d like help with: '+topic.slice(0,60)+'.'; }
 
   // Booking form: builds an email to info@ (no backend on this site).
   var form=document.getElementById('form'), err=document.getElementById('err');
-  form.addEventListener('submit',function(e){
+  if(form) form.addEventListener('submit',function(e){
     e.preventDefault(); err.textContent='';
     var missing=[].slice.call(form.querySelectorAll('[required]')).filter(function(i){return !i.value.trim()});
     if(missing.length){err.textContent='Please fill in your name, business and a way to reach you.';missing[0].focus();return}

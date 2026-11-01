@@ -218,3 +218,16 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   body{opacity:1}
   .js .rv{opacity:1;transform:none}
 }
+
+/* Inner pages */
+.page-top{padding-top:clamp(140px,16vw,200px)}
+.svc-full h2{margin:0;font-weight:650;font-size:clamp(28px,3.2vw,46px);letter-spacing:-.035em;line-height:1.05}
+.svc-full li > div > p{margin:0;color:var(--text);max-width:56ch}
+.ticks{margin:18px 0 0;padding:0}
+.svc .ticks li{list-style:none;display:block;position:relative;padding:6px 0 6px 26px;color:var(--text-2);border:0}
+.ticks li::before{content:"";position:absolute;left:2px;top:15px;width:12px;height:1.5px;background:var(--text-3)}
+.svc-full .ticks li::after{display:none}
+.svc-full li:hover h2{transform:none}
+.endcta{border:1px solid var(--line);border-radius:16px;padding:clamp(32px,5vw,72px);background:rgba(19,19,21,.6)}
+.endcta .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.book .steps{margin-top:36px}

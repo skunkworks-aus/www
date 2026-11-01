@@ -24,22 +24,22 @@
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Skunkworks Australia, back to top">
+    <a class="brand" href="#top" aria-label="Skunkworks Australia, home">
       <img src="assets/skunk-mark.png" alt="" width="34" height="31">
       <div><b>Skunkworks</b><span>AUSTRALIA</span></div>
     </a>
     <nav class="links" aria-label="Main">
-      <a href="#services">Services</a>
+      <a href="services.html">Services</a>
       <a href="#check-up">The check-up</a>
       <a href="#family">Store &amp; Academy</a>
       <a href="#faq">Questions</a>
-      <a class="btn btn-solid" href="#book"><span class="long">Book a free check-up</span><span class="short">Book check-up</span></a>
+      <a class="btn btn-solid" href="book.html"><span class="long">Book a free check-up</span><span class="short">Book check-up</span></a>
       <button class="menu-btn" type="button" data-menu-button aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><i></i><i></i></button>
     </nav>
   </div>
   <div class="mmenu" id="mmenu" data-mobile-menu hidden>
     <div class="wrap">
-      <a href="#services">Services</a>
+      <a href="services.html">Services</a>
       <a href="#check-up">The check-up</a>
       <a href="#family">Store &amp; Academy</a>
       <a href="#faq">Questions</a>
@@ -77,8 +77,8 @@
         <h2 class="split">Start with a free tech check-up.</h2>
         <p class="sub">We come to your business, look over the tech it runs on, and give you a plain-English report of what to fix first.</p>
         <div class="row sub">
-          <a class="btn btn-solid" href="#book">Book a free check-up <span class="arr" aria-hidden="true">&rarr;</span></a>
-          <a class="btn btn-line" href="#services">See what we do</a>
+          <a class="btn btn-solid" href="book.html">Book a free check-up <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-line" href="services.html">See what we do</a>
         </div>
       </div>
 
@@ -116,11 +116,11 @@
         </ol>
       </div>
       <ul class="areas rv d1" aria-label="What the check-up covers">
-        <li><a href="#book" data-topic="Email &amp; Microsoft 365"><b>Email &amp; Microsoft 365</b><span>Accounts, sign-ins, spam and the settings that matter.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
-        <li><a href="#book" data-topic="Computers &amp; phones"><b>Computers &amp; phones</b><span>Age, updates, and what’s slowing you down.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
-        <li><a href="#book" data-topic="Backups"><b>Backups</b><span>Where your files live, and whether you could get them back.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
-        <li><a href="#book" data-topic="Wi‑Fi &amp; passwords"><b>Wi‑Fi &amp; passwords</b><span>Who can get on, and how they sign in.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
-        <li><a href="#book" data-topic="Website &amp; listings"><b>Website &amp; listings</b><span>How locals find you online, and what it says.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+        <li><a href="book.html?topic=Email%20%26%20Microsoft%20365"><b>Email &amp; Microsoft 365</b><span>Accounts, sign-ins, spam and the settings that matter.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+        <li><a href="book.html?topic=Computers%20%26%20phones"><b>Computers &amp; phones</b><span>Age, updates, and what’s slowing you down.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+        <li><a href="book.html?topic=Backups"><b>Backups</b><span>Where your files live, and whether you could get them back.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+        <li><a href="book.html?topic=Wi-Fi%20%26%20passwords"><b>Wi‑Fi &amp; passwords</b><span>Who can get on, and how they sign in.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+        <li><a href="book.html?topic=Website%20%26%20listings"><b>Website &amp; listings</b><span>How locals find you online, and what it says.</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
       </ul>
     </div>
   </section>
@@ -161,27 +161,11 @@
   </section>
 
   <section class="s" id="book" style="padding-top:0">
-    <div class="wrap book" id="bookwrap">
-      <div>
-        <h2 class="h2 rv">Book your free check-up.</h2>
-        <p class="lede rv d1">Tell us a little about your business and when suits. We’ll get back to you to lock in a time.</p>
-      </div>
-      <div class="rv d1">
-        <form id="form" novalidate>
-          <div class="f"><label for="n">Your name</label><input id="n" name="name" autocomplete="name" required></div>
-          <div class="f"><label for="b">Business name</label><input id="b" name="business" autocomplete="organization" required></div>
-          <div class="f"><label for="c">Email or phone</label><input id="c" name="contact" autocomplete="email" required></div>
-          <div class="f"><label for="t">Best time for a visit</label>
-            <select id="t" name="time"><option>Any time</option><option>Mornings</option><option>Afternoons</option><option>After hours</option></select></div>
-          <div class="f wide"><label for="m">What’s on your mind? <span style="color:var(--text-3)">(optional)</span></label><textarea id="m" name="message" placeholder="e.g. Our email keeps going to spam, and we’re not sure the backups work."></textarea></div>
-          <p class="err f wide" id="err" role="alert"></p>
-          <button class="btn btn-solid" type="submit">Send my request <span class="arr" aria-hidden="true">&rarr;</span></button>
-          <p class="formnote">This opens your email app with your request filled in, addressed to info@skunkworksau.com.au. Nothing is stored on this website.</p>
-        </form>
-        <div class="sent" id="sent" tabindex="-1">
-          <h3>Nearly there.</h3>
-          <p>Your email app should have opened with your request ready to go. Hit send and we’ll be in touch. If nothing opened, email us at <a href="mailto:info@skunkworksau.com.au">info@skunkworksau.com.au</a>.</p>
-        </div>
+    <div class="wrap">
+      <div class="endcta rv">
+        <h2 class="h2">Ready when you are.</h2>
+        <p class="lede">Book a free tech check-up. It takes two minutes, and there’s no obligation.</p>
+        <div class="row"><a class="btn btn-solid" href="book.html">Book a free check-up <span class="arr" aria-hidden="true">&rarr;</span></a><a class="btn btn-line" href="services.html">See what we do</a></div>
       </div>
     </div>
   </section>

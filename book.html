@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a free tech check-up | Skunkworks Australia</title>
+<meta name="description" content="Book a free, in-person tech check-up for your business in the Colac Otway region. No cost, no obligation.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="canonical" href="https://www.skunkworksau.com.au/book.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Skunkworks Australia: your business technology, sorted">
+<meta property="og:description" content="Local IT for small businesses in the Colac Otway region. Start with a free tech check-up.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.skunkworksau.com.au/assets/og.jpg">
+<meta property="og:url" content="https://www.skunkworksau.com.au/book.html">
+<link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="env" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Skunkworks Australia, home">
+      <img src="assets/skunk-mark.png" alt="" width="34" height="31">
+      <div><b>Skunkworks</b><span>AUSTRALIA</span></div>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="index.html#check-up">The check-up</a>
+      <a href="index.html#family">Store &amp; Academy</a>
+      <a href="index.html#faq">Questions</a>
+      <a class="btn btn-solid" href="book.html"><span class="long">Book a free check-up</span><span class="short">Book check-up</span></a>
+      <button class="menu-btn" type="button" data-menu-button aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><i></i><i></i></button>
+    </nav>
+  </div>
+  <div class="mmenu" id="mmenu" data-mobile-menu hidden>
+    <div class="wrap">
+      <a href="services.html">Services</a>
+      <a href="index.html#check-up">The check-up</a>
+      <a href="index.html#family">Store &amp; Academy</a>
+      <a href="index.html#faq">Questions</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="s page-top" id="book">
+    <div class="wrap book" id="bookwrap">
+      <div>
+        <h1 class="h2 rv">Book your free check-up.</h1>
+        <p class="lede rv d1">Tell us a little about your business and when suits. We’ll get back to you to lock in a time.</p>
+        <ol class="steps rv d2">
+          <li><div><b>We confirm a time</b><span>A quick reply to lock in a day that suits you.</span></div></li>
+          <li><div><b>We come to you</b><span>We look over your tech at your business while you keep working.</span></div></li>
+          <li><div><b>You get a plain-English report</b><span>What’s fine, what’s risky, and what to fix first. No obligation.</span></div></li>
+        </ol>
+      </div>
+      <div class="rv d1">
+        <form id="form" novalidate>
+          <div class="f"><label for="n">Your name</label><input id="n" name="name" autocomplete="name" required></div>
+          <div class="f"><label for="b">Business name</label><input id="b" name="business" autocomplete="organization" required></div>
+          <div class="f"><label for="c">Email or phone</label><input id="c" name="contact" autocomplete="email" required></div>
+          <div class="f"><label for="t">Best time for a visit</label>
+            <select id="t" name="time"><option>Any time</option><option>Mornings</option><option>Afternoons</option><option>After hours</option></select></div>
+          <div class="f wide"><label for="m">What’s on your mind? <span style="color:var(--text-3)">(optional)</span></label><textarea id="m" name="message" placeholder="e.g. Our email keeps going to spam, and we’re not sure the backups work."></textarea></div>
+          <p class="err f wide" id="err" role="alert"></p>
+          <button class="btn btn-solid" type="submit">Send my request <span class="arr" aria-hidden="true">&rarr;</span></button>
+          <p class="formnote">This opens your email app with your request filled in, addressed to info@skunkworksau.com.au. Nothing is stored on this website.</p>
+        </form>
+        <div class="sent" id="sent" tabindex="-1">
+          <h3>Nearly there.</h3>
+          <p>Your email app should have opened with your request ready to go. Hit send and we’ll be in touch. If nothing opened, email us at <a href="mailto:info@skunkworksau.com.au">info@skunkworksau.com.au</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/skunk-mark.png" alt="" width="34" height="31"><div><b>Skunkworks</b><span>AUSTRALIA</span></div></a>
+      <p style="margin:18px 0 0;max-width:36ch">Local IT for small businesses. Based in Colac, Victoria.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="mailto:info@skunkworksau.com.au">info@skunkworksau.com.au</a>
+      <a href="https://store.skunkworksau.com.au">Store</a>
+      <a href="https://skunkworks.africa">Skunkworks Africa</a>
+    </nav>
+  </div>
+  <div class="wrap fine">© 2026 Skunkworks Australia. A Skunkworks Africa chapter.</div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
