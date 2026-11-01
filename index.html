@@ -6,13 +6,14 @@
 <title>Skunkworks Australia | Local IT for small businesses in Colac Otway</title>
 <meta name="description" content="Microsoft 365, websites, automation, training and security for small businesses in the Colac Otway region. Start with a free, in-person tech check-up.">
 <meta name="theme-color" content="#0b0b0c">
+<link rel="canonical" href="https://www.skunkworksau.com.au/">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="Skunkworks Australia: your business technology, sorted">
 <meta property="og:description" content="Local IT for small businesses in the Colac Otway region. Start with a free tech check-up.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://skunkworksau.com.au/assets/og.jpg">
-<meta property="og:url" content="https://skunkworksau.com.au/">
+<meta property="og:image" content="https://www.skunkworksau.com.au/assets/og.jpg">
+<meta property="og:url" content="https://www.skunkworksau.com.au/">
 <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Geist";src:url("assets/fonts/Geist-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
@@ -78,6 +79,17 @@ img,svg{display:block}
 .links a:not(.btn):hover{color:var(--text)}
 .links .btn{min-height:42px;padding:0 18px;font-size:15px}
 @media (max-width:900px){.links a:not(.btn){display:none}}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:8px;background:transparent;cursor:pointer;position:relative}
+.menu-btn i{position:absolute;left:12px;right:12px;height:1.6px;background:var(--text);transition:transform .4s var(--ease-out)}
+.menu-btn i:first-child{top:17px}.menu-btn i:last-child{top:25px}
+.menu-btn[aria-expanded="true"] i:first-child{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] i:last-child{transform:translateY(-4px) rotate(-45deg)}
+@media (max-width:900px){.menu-btn{display:block}.links{gap:12px}}
+.mmenu{background:rgba(11,11,12,.96);border-bottom:1px solid var(--line)}
+.nav .mmenu .wrap{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;height:auto;gap:0;padding-top:4px;padding-bottom:20px}
+@media (max-width:420px){.links{gap:8px}.links .btn{padding:0 14px}.nav .wrap{gap:12px}}
+.mmenu a{text-decoration:none;font-size:22px;font-weight:600;letter-spacing:-.02em;padding:14px 0;border-top:1px solid var(--line)}
+.mmenu a:first-child{border-top:0}
 .links .btn{white-space:nowrap}
 .links .btn .short{display:none}
 @media (max-width:420px){.links .btn .long{display:none}.links .btn .short{display:inline}}
@@ -254,7 +266,16 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <a href="#family">Store &amp; Academy</a>
       <a href="#faq">Questions</a>
       <a class="btn btn-solid" href="#book"><span class="long">Book a free check-up</span><span class="short">Book check-up</span></a>
+      <button class="menu-btn" type="button" data-menu-button aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><i></i><i></i></button>
     </nav>
+  </div>
+  <div class="mmenu" id="mmenu" data-mobile-menu hidden>
+    <div class="wrap">
+      <a href="#services">Services</a>
+      <a href="#check-up">The check-up</a>
+      <a href="#family">Store &amp; Academy</a>
+      <a href="#faq">Questions</a>
+    </div>
   </div>
 </header>
 
@@ -398,7 +419,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   </section>
 </main>
 
-<footer>
+<footer class="foot">
   <div class="wrap">
     <div>
       <a class="brand" href="#top"><img src="assets/skunk-mark.png" alt="" width="34" height="31"><div><b>Skunkworks</b><span>AUSTRALIA</span></div></a>
@@ -513,6 +534,14 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   document.addEventListener('visibilitychange',function(){document.body.classList.toggle('paused',document.hidden)});
 
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',function(e){ if(e.matches) rv.forEach(function(el){el.classList.add('in','settled')}) });
+
+  // Mobile menu
+  var mb=document.querySelector('[data-menu-button]'), mm=document.querySelector('[data-mobile-menu]');
+  function setMenu(open){mb.setAttribute('aria-expanded',open);mb.setAttribute('aria-label',open?'Close menu':'Open menu');mm.hidden=!open;if(open)nav.classList.add("solid");else{navSolid=null;navState()}}
+  mb.addEventListener('click',function(){setMenu(mm.hidden)});
+  mm.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);mb.focus()}});
+  matchMedia('(min-width: 901px)').addEventListener('change',function(e){if(e.matches)setMenu(false)});
 
   // Booking form: builds an email to info@ (no backend on this site).
   var form=document.getElementById('form'), err=document.getElementById('err');
