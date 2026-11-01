@@ -12,4 +12,4 @@ Requested new country domain: https://www.skunkworksau.au/
 Existing store from source: https://store.skunkworksau.com.au/ ; do not silently move catalogues or assume new region-specific Shopify domain.
 Existing contact address from source: info@skunkworksau.com.au.
 
-No fake entities, offices, partner status, or local pricing have been added. Run node scripts/validate-site.mjs then test 320px/desktop, dark/light contrast and GitHub Pages after publish.
+No fake entities, offices or local pricing have been added. The landing-page "Technology partners" section lists partnerships held across the Skunkworks group (as listed by Skunkworks Academy), styled in partners.css so the theme sync does not overwrite it. Run node scripts/validate-site.mjs then test 320px/desktop, dark/light contrast and GitHub Pages after publish.
