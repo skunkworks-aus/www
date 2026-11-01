@@ -104,11 +104,10 @@
 
   // Mobile menu
   var mb=document.querySelector('[data-menu-button]'), mm=document.querySelector('[data-mobile-menu]');
-  function setMenu(open){mb.setAttribute('aria-expanded',open);mb.setAttribute('aria-label',open?'Close menu':'Open menu');mm.hidden=!open;if(open)nav.classList.add("solid");else{navSolid=null;navState()}}
+  function setMenu(open){mb.setAttribute('aria-expanded',open);mb.setAttribute('aria-label',open?'Close menu':'Open menu');mm.hidden=!open;document.documentElement.classList.toggle('menu-open',open);if(open)nav.classList.add("solid");else{navSolid=null;navState()}}
   mb.addEventListener('click',function(){setMenu(mm.hidden)});
   mm.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);mb.focus()}});
-  matchMedia('(min-width: 901px)').addEventListener('change',function(e){if(e.matches)setMenu(false)});
 
   // Topic passed from the homepage check-up list (book.html?topic=...)
   var msg=document.getElementById('m'), topic=new URLSearchParams(location.search).get('topic');
