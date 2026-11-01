@@ -1,147 +1,532 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skunkworks Australia | Local IT for small businesses in Colac Otway</title>
+<meta name="description" content="Microsoft 365, websites, automation, training and security for small businesses in the Colac Otway region. Start with a free, in-person tech check-up.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Skunkworks Australia: your business technology, sorted">
+<meta property="og:description" content="Local IT for small businesses in the Colac Otway region. Start with a free tech check-up.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://skunkworksau.com.au/assets/og.jpg">
+<meta property="og:url" content="https://skunkworksau.com.au/">
+<link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Geist";src:url("assets/fonts/Geist-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("assets/fonts/GeistMono-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
 
-  <title>Skunkworks Australia | Technology, Cloud, AI, Security &amp; Training</title>
-  <meta name="description" content="Skunkworks Australia delivers cloud, AI, cybersecurity, technology commerce and training for organisations across Australia.">
-  <link rel="canonical" href="https://www.skunkworksau.com.au/">
+:root{
+  --canvas:#0b0b0c;
+  --panel:#131315;
+  --raised:#1a1a1d;
+  --line:rgba(237,237,234,.12);
+  --line-strong:rgba(237,237,234,.34);
+  --text:#ededea;
+  --text-2:#a3a3a0;
+  --text-3:#8a8a87;
+  --accent:#ffffff;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --gutter:clamp(20px,4.4vw,64px);
+  --maxw:1360px;
+  --tshadow:0 1px 2px rgba(5,5,6,.9),0 4px 18px rgba(5,5,6,.7);
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;background:var(--canvas);-webkit-text-size-adjust:100%}
+body{overflow-x:hidden;overflow-x:clip;margin:0;background:var(--canvas);color:var(--text);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;opacity:0;animation:pagein .9s var(--ease-out) .05s forwards}
+@keyframes pagein{to{opacity:1}}
+::selection{background:#ededea;color:#0b0b0c}
+html{scrollbar-color:#3a3a3e var(--canvas)}
+a{color:inherit;text-underline-offset:.28em;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+img,svg{display:block}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--accent);color:#0b0b0c;padding:10px 16px;border-radius:6px;font-weight:600;text-decoration:none;transition:top .2s var(--ease-out)}
+.skip:focus{top:16px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:"Geist Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:.06em}
 
-  <meta property="og:title" content="Skunkworks Australia">
-  <meta property="og:description" content="Technology solutions, commerce and practical skills development across Australia.">
-  <meta property="og:url" content="https://www.skunkworksau.com.au/">
-  <meta property="og:type" content="website">
+/* The one environment: soft studio haze + grain, fixed behind everything */
+.env{position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--canvas)}
+.env::before{content:"";position:absolute;inset:-20%;background:radial-gradient(40% 35% at 70% 30%,rgba(237,237,234,.045),transparent 70%),radial-gradient(35% 30% at 20% 80%,rgba(237,237,234,.03),transparent 70%);animation:haze 80s var(--ease-io) -20s infinite alternate}
+.env::after{content:"";position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes haze{to{transform:translate3d(-6%,4%,0) scale(1.08)}}
 
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="shortcut icon" href="assets/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/favicon.ico">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="adaptive-shell.css">
-  <link rel="stylesheet" href="hero-chat.css">
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:8px;font:600 17px/1 "Geist",sans-serif;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .35s var(--ease-out),color .35s var(--ease-out),border-color .35s var(--ease-out),transform .35s var(--ease-out);text-shadow:none}
+.btn-solid{background:var(--accent);color:#0b0b0c}
+.btn-solid:hover{background:#d9d9d6}
+.btn-line{border-color:var(--line-strong);color:var(--text)}
+.btn-line:hover{border-color:var(--text);background:rgba(237,237,234,.06)}
+.btn:active{transform:translateY(1px)}
+.btn .arr{transition:transform .35s var(--ease-out)}
+.btn:hover .arr{transform:translateX(3px)}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Skunkworks Australia",
-    "url": "https://www.skunkworksau.com.au/",
-    "email": "info@skunkworksau.com.au",
-    "sameAs": [
-      "https://www.skunkworksacademy.com/",
-      "https://store.skunkworksau.com.au/",
-      "https://www.skunkworks.africa/"
-    ]
-  }
-  </script>
-<link rel="stylesheet" href="./tokens.css"><meta property="og:locale" content="en_AU"><link rel="alternate" hreflang="en-AU" href="https://www.skunkworksau.com.au/"></head>
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .5s var(--ease-out),border-color .5s var(--ease-out)}
+.nav.solid{background:rgba(11,11,12,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:34px;height:auto}
+.brand b{font-weight:700;font-size:17px;letter-spacing:-.01em}
+.brand span{display:block;font-family:"Geist Mono",monospace;font-weight:500;font-size:11px;letter-spacing:.24em;color:var(--text-2);margin-top:2px}
+.links{display:flex;align-items:center;gap:30px;font-size:15.5px}
+.links a:not(.btn){text-decoration:none;color:var(--text-2);transition:color .3s var(--ease-out)}
+.links a:not(.btn):hover{color:var(--text)}
+.links .btn{min-height:42px;padding:0 18px;font-size:15px}
+@media (max-width:900px){.links a:not(.btn){display:none}}
+.links .btn{white-space:nowrap}
+.links .btn .short{display:none}
+@media (max-width:420px){.links .btn .long{display:none}.links .btn .short{display:inline}}
 
-<body id="top">
-  <a class="skip-link" href="#main">Skip to main content</a>
+/* ---------- HERO: the studio reveal ---------- */
+.hero{position:relative;height:520vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.studio{position:absolute;inset:0}
+.pool{position:absolute;left:50%;bottom:-8vh;width:120vw;height:46vh;transform:translateX(-30%);background:radial-gradient(50% 50% at 50% 50%,rgba(237,237,234,.10),transparent 70%);opacity:calc(.25 + .75*var(--lit,0))}
+.halo{position:absolute;width:min(70vh,52vw);aspect-ratio:1;right:6vw;top:12vh;border-radius:50%;background:radial-gradient(closest-side,rgba(237,237,234,.10),transparent);opacity:var(--lit,0);transform:scale(calc(.85 + .15*var(--lit,0)))}
+.mark{position:absolute;right:max(6vw,calc(50vw - 640px));top:14vh;width:min(58vh,44vw);aspect-ratio:1100/1018}
+.mark .m{position:absolute;inset:0;-webkit-mask:url("assets/skunk-mark.png") center/contain no-repeat;mask:url("assets/skunk-mark.png") center/contain no-repeat;overflow:hidden}
+.m.dark{background:#19191b}
+.m.full{background:linear-gradient(180deg,#f4f4f1 0%,#cfcfcb 100%);opacity:var(--lit,0)}
+.m.sweep i{position:absolute;top:-10%;bottom:-10%;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.0) 20%,rgba(255,255,255,.92) 50%,rgba(255,255,255,0) 80%,transparent 100%);transform:translate3d(var(--sx,-120%),0,0) skewX(-12deg);will-change:transform}
+.floorline{position:absolute;left:0;right:0;top:calc(14vh + min(58vh,44vw)*1018/1100 + 1px);height:1px;background:linear-gradient(90deg,transparent,rgba(237,237,234,.16) 30%,rgba(237,237,234,.16) 70%,transparent);opacity:calc(.3 + .7*var(--lit,0))}
 
-  <header class="site-header" data-header aria-label="Global header">
-    <div class="shell header-inner">
-      <a class="brand" href="./" aria-label="Skunkworks Australia home"><img class="brand-mark" src="assets/logo-white.svg" alt="" width="34" height="34" aria-hidden="true"><span><strong>Skunkworks</strong><small>Australia</small></span></a>
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#solutions">Solutions</a><a href="#services">Services</a><a href="#commerce">Store</a><a href="https://www.skunkworksacademy.com/">Academy</a><a href="#company">Company</a>
-      </nav>
-      <div class="header-actions">
-        <a class="utility-link" href="#contact">Contact</a>
-        <a class="button button-primary button-small" href="https://store.skunkworksau.com.au/">Shop</a>
-        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" data-menu-button><span></span><span></span><span></span></button>
-      </div>
-    </div>
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
-      <nav class="shell" aria-label="Mobile navigation">
-        <a href="#solutions">Solutions</a><a href="#services">Services</a><a href="#commerce">Store</a><a href="https://www.skunkworksacademy.com/">Academy</a><a href="#company">Company</a><a href="#contact">Contact</a>
-        <a class="button button-primary" href="https://store.skunkworksau.com.au/">Open Store</a>
-      </nav>
-    </div>
-  </header>
+.scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,11,12,.7) 0%,rgba(11,11,12,.25) 45%,rgba(11,11,12,0) 70%)}
+.band{position:absolute;left:var(--gutter);bottom:clamp(56px,12vh,120px);max-width:min(760px,calc(100vw - 2*var(--gutter)));opacity:0;text-shadow:var(--tshadow)}
+.band.b1{opacity:1}
+.band h1,.band h2{margin:0;font-weight:700;letter-spacing:-.04em;line-height:.98;font-size:clamp(46px,6.6vw,96px);text-wrap:balance}
+.band h2{font-size:clamp(40px,5.2vw,80px)}
+.band p{margin:24px 0 0;max-width:46ch;font-size:clamp(17px,1.5vw,20px);color:#c9c9c6}
+.band .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.w{display:inline-block;opacity:var(--kc,1);transform:translate3d(0,calc((1 - var(--kc,1))*0.45em),0);--kc:clamp(0,(var(--k,1) - var(--i,0)*.07)*2.6,1)}
+.sub{opacity:clamp(0,(var(--k,1) - .55)*3,1);transform:translate3d(0,calc((1 - clamp(0,(var(--k,1) - .55)*3,1))*14px),0)}
+.cue{position:absolute;right:var(--gutter);bottom:clamp(56px,12vh,120px);display:flex;align-items:center;gap:12px;color:var(--text-2);opacity:calc(1 - var(--p,0)*8)}
+.cue i{display:block;width:1px;height:44px;background:linear-gradient(var(--text-2),transparent);transform-origin:top;animation:cue 2.6s var(--ease-io) infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.meter{position:absolute;right:var(--gutter);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+.meter b{display:block;width:2px;height:28px;background:var(--line-strong);transition:background .4s var(--ease-out)}
+.meter b.on{background:var(--text)}
 
-  <main id="main">
-    <section class="hero shell" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Skunkworks Australia technology ecosystem</p>
-        <h1 id="hero-title">Technology capability, commerce and learning — in one connected system.</h1>
-        <p class="lead">Cloud, AI, cybersecurity, software, infrastructure and practical skills development for Australian organisations.</p>
-        <div class="actions"><a class="button button-primary" href="#solutions">Explore solutions</a><a class="button button-secondary" href="https://store.skunkworksau.com.au/">Browse the store</a></div>
-      </div>
-      <aside class="hero-panel" aria-label="Platform routes"><p class="eyebrow">Canonical routes</p><a href="https://store.skunkworksau.com.au/"><strong>Store</strong><span>Products, licensing and commerce →</span></a><a href="https://www.skunkworksacademy.com/"><strong>Academy</strong><span>Training, labs and certification →</span></a><a href="#contact"><strong>Solutions</strong><span>Projects, consulting and managed services →</span></a></aside>
-      <section class="hero-assistant" aria-label="Skunkworks assistant">
-        <div class="hero-assistant__label"><strong>Ask Skunkworks</strong><span>Products · solutions · training</span></div>
-        <form class="hero-assistant__form" data-hero-assistant-form>
-          <label class="sr-only" for="hero-assistant-input">Tell Skunkworks what you need</label>
-          <input class="hero-assistant__input" id="hero-assistant-input" name="q" type="search" autocomplete="off" placeholder="What do you need help with? e.g. Microsoft 365 licensing, zero trust, AI" data-hero-assistant-input>
-          <button class="hero-assistant__submit" type="submit">Ask →</button>
-        </form>
-        <div class="hero-assistant__chips" aria-label="Suggested prompts">
-          <button class="hero-assistant__chip" type="button" data-assistant-prompt="Microsoft 365 licensing">Microsoft 365 licensing</button>
-          <button class="hero-assistant__chip" type="button" data-assistant-prompt="AI and automation solutions">AI &amp; automation</button>
-          <button class="hero-assistant__chip" type="button" data-assistant-prompt="cybersecurity training and certification">Security training</button>
+/* Static hero (phones, portrait tablets, coarse portrait, landscape phones, reduced motion) */
+@media (max-width:720px),(orientation:portrait) and (max-width:1024px),(orientation:portrait) and (pointer:coarse),(orientation:landscape) and (pointer:coarse) and (max-height:560px),(prefers-reduced-motion:reduce){
+  .hero{height:auto}
+  .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:110px 0 56px;overflow:hidden}
+  .studio{--lit:1;--sx:200%}
+  .mark{right:auto;left:50%;transform:translateX(-50%);top:96px;width:min(62vw,340px)}
+  .floorline{top:calc(96px + min(62vw,340px)*1018/1100 + 1px)}
+  .halo{right:50%;transform:translateX(50%);top:40px;width:90vw}
+  .scrim{background:linear-gradient(0deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,.6) 40%,rgba(11,11,12,0) 70%)}
+  .band{position:relative;left:auto;bottom:auto;opacity:1;padding:0 var(--gutter);margin-top:min(80vw,440px);--k:1}
+  .band.b2,.band.b3{display:none}
+  .band.b4{margin-top:40px}
+  .band.b4 h2{font-size:clamp(30px,7vw,44px)}
+  .cue,.meter{display:none}
+}
+@media (max-height:560px){.cue,.meter{display:none}}
+
+/* ---------- Sections ---------- */
+section.s{padding:clamp(96px,14vw,180px) 0}
+.h2{margin:0;font-weight:700;letter-spacing:-.04em;line-height:1;font-size:clamp(40px,5.6vw,84px);text-wrap:balance;max-width:16ch}
+.lede{margin:24px 0 0;max-width:52ch;font-size:clamp(18px,1.5vw,21px);color:var(--text-2)}
+
+/* Services: an editorial index, one row per service */
+.svc{margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--line)}
+.svc li{list-style:none;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px 48px;align-items:baseline;padding:clamp(28px,3.4vw,44px) 0;border-bottom:1px solid var(--line);position:relative}
+.svc ul{margin:0;padding:0}
+.svc h3{margin:0;font-weight:650;font-size:clamp(28px,3.2vw,46px);letter-spacing:-.035em;line-height:1.05;transition:transform .5s var(--ease-out)}
+.svc p{margin:0;color:var(--text-2);max-width:56ch;transition:color .5s var(--ease-out)}
+.svc li::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--text);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
+.svc li:hover::after{transform:scaleX(1)}
+.svc li:hover h3{transform:translateX(8px)}
+.svc li:hover p{color:var(--text)}
+@media (max-width:760px){.svc li{grid-template-columns:1fr;gap:12px}}
+
+/* Check-up: steps + the hold interaction */
+.check{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,120px);align-items:start}
+@media (max-width:900px){.check{grid-template-columns:1fr}}
+.steps{margin:48px 0 0;padding:0;counter-reset:st}
+.steps li{list-style:none;display:grid;grid-template-columns:28px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{counter-increment:st;content:counter(st);font-family:"Geist Mono",monospace;font-size:14px;color:var(--text-3);padding-top:3px}
+.steps b{display:block;font-weight:600;font-size:19px}
+.steps span{color:var(--text-2);font-size:16.5px}
+.areas{margin:0;padding:0;border-top:1px solid var(--line)}
+.areas li{list-style:none;display:flex;flex-direction:column;gap:6px;padding:clamp(22px,2.4vw,30px) 0;border-bottom:1px solid var(--line)}
+.areas b{font-weight:650;font-size:clamp(24px,2.4vw,34px);letter-spacing:-.03em;line-height:1.1}
+.areas span{color:var(--text-2);font-size:17px}
+
+/* Statement band: full width, centred, different skeleton */
+.statement{text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.statement p.big{margin:0 auto;font-weight:700;letter-spacing:-.045em;line-height:1;font-size:clamp(40px,6.2vw,96px);max-width:15ch;text-wrap:balance}
+.statement p.big span{color:var(--text-3)}
+.statement .fact{margin:40px auto 0;max-width:58ch;color:var(--text-2);font-size:17px}
+.statement .src{display:block;margin-top:10px;color:var(--text-3)}
+
+/* Family routes, echoing skunkworks.africa */
+.family{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.family{grid-template-columns:1fr}}
+.routes{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(19,19,21,.6)}
+.routes a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 28px;text-decoration:none;border-top:1px solid var(--line);transition:background .4s var(--ease-out)}
+.routes a:first-child{border-top:0}
+.routes a:hover{background:rgba(237,237,234,.04)}
+.routes b{display:block;font-size:21px;font-weight:650;letter-spacing:-.02em}
+.routes span{color:var(--text-2);font-size:15.5px}
+.routes svg{flex:none;width:20px;height:20px;stroke:var(--text-2);stroke-width:1.6;fill:none;transition:transform .4s var(--ease-out),stroke .4s var(--ease-out)}
+.routes a:hover svg{transform:translate(3px,-3px);stroke:var(--text)}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(40px,6vw,96px)}
+@media (max-width:900px){.faq{grid-template-columns:1fr}}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font-size:clamp(19px,1.7vw,23px);font-weight:600;letter-spacing:-.015em;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;position:relative;width:16px;height:16px}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:0;top:7px;width:16px;height:1.6px;background:var(--text-2);transition:transform .4s var(--ease-out)}
+.faq summary i::after{transform:rotate(90deg)}
+.faq details[open] summary i::after{transform:rotate(0)}
+.faq details p{margin:0 0 26px;max-width:62ch;color:var(--text-2)}
+
+/* Booking form */
+.book{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.book{grid-template-columns:1fr}}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:640px){form{grid-template-columns:1fr}}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.wide{grid-column:1/-1}
+label{font-size:15px;color:var(--text-2)}
+input,select,textarea{font:400 17px/1.4 "Geist",sans-serif;color:var(--text);background:var(--panel);border:1px solid rgba(237,237,234,.24);border-radius:8px;padding:14px 16px;min-height:52px;width:100%;transition:border-color .3s var(--ease-out),background .3s var(--ease-out);caret-color:var(--text)}
+textarea{min-height:120px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#8a8a87}
+input:hover,select:hover,textarea:hover{border-color:rgba(237,237,234,.42)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--text);background:var(--raised)}
+input:user-invalid{border-color:#e0e0dc;border-style:dashed}
+.err{font-size:15px;color:var(--text);margin:0}
+.err:empty{display:none}
+form .btn{grid-column:1/-1;justify-self:start;margin-top:6px}
+.formnote{grid-column:1/-1;margin:0;font-size:14.5px;color:var(--text-3)}
+.sent{display:none;border:1px solid var(--line-strong);border-radius:14px;padding:32px}
+.sent h3{margin:0 0 10px;font-size:26px;letter-spacing:-.02em}
+.sent p{margin:0;color:var(--text-2)}
+.book.done form{display:none}
+.book.done .sent{display:block}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:56px 0 48px;color:var(--text-2);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;align-items:flex-start}
+footer nav{display:flex;flex-wrap:wrap;gap:24px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--text)}
+.fine{margin-top:40px;color:var(--text-3);font-size:13.5px}
+
+/* Entrances: present by default, choreographed once when JS is on */
+.js .rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}
+.js .rv.settled{transition-delay:0s}
+
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+@media (pointer:coarse){.btn{min-height:48px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
+  body{opacity:1}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="env" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Skunkworks Australia, back to top">
+      <img src="assets/skunk-mark.png" alt="" width="34" height="31">
+      <div><b>Skunkworks</b><span>AUSTRALIA</span></div>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#check-up">The check-up</a>
+      <a href="#family">Store &amp; Academy</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn-solid" href="#book"><span class="long">Book a free check-up</span><span class="short">Book check-up</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="hero" id="top">
+    <div class="stage" id="stage">
+      <div class="studio" id="studio" aria-hidden="true">
+        <div class="pool"></div>
+        <div class="halo"></div>
+        <div class="floorline"></div>
+        <div class="mark">
+          <div class="m dark"></div>
+          <div class="m full"></div>
+          <div class="m sweep"><i></i></div>
         </div>
-      </section>
-    </section>
-
-    <section class="section shell" id="solutions"><div class="section-heading"><p class="eyebrow">Solutions</p><h2>Route every technology requirement to the right capability.</h2><p>Clear destinations, concise descriptions and direct next actions.</p></div>
-      <div class="card-grid">
-        <article class="card"><span>01</span><h3>Cloud &amp; Microsoft</h3><p>Licensing, Microsoft 365, cloud adoption, infrastructure and managed operations.</p><div><a href="https://store.skunkworksau.com.au/">Visit the store</a><a href="#contact">Plan a Microsoft engagement</a></div></article>
-        <article class="card"><span>02</span><h3>AI &amp; Automation</h3><p>AI software, Copilot, workflow automation and implementation support.</p><div><a href="#contact">Plan an AI engagement</a><a href="https://store.skunkworksau.com.au/">Visit the store</a></div></article>
-        <article class="card"><span>03</span><h3>Cybersecurity</h3><p>Security software, assessments, governance and defensive technology for small and growing businesses.</p><div><a href="#contact">Request an assessment</a><a href="https://store.skunkworksau.com.au/">Visit the store</a></div></article>
-        <article class="card"><span>04</span><h3>Hardware &amp; Software</h3><p>Business hardware, software subscriptions, accessories and vendor solutions.</p><div><a href="https://store.skunkworksau.com.au/">Visit the store</a><a href="#contact">Request a quote</a></div></article>
-        <article class="card"><span>05</span><h3>Business Solutions</h3><p>Packaged services, business-startup bundles and technology enablement.</p><div><a href="#contact">Request a proposal</a><a href="https://store.skunkworksau.com.au/">Visit the store</a></div></article>
-        <article class="card"><span>06</span><h3>Training &amp; Certification</h3><p>Role-based learning, labs and certification pathways through Skunkworks Academy.</p><div><a href="https://www.skunkworksacademy.com/">Open Academy</a><a href="#contact">Ask about training</a></div></article>
       </div>
-    </section>
+      <div class="scrim" aria-hidden="true"></div>
 
-    <section class="section section-band" id="commerce"><div class="shell split"><div class="section-heading"><p class="eyebrow">Commerce</p><h2>The store is the transactional layer. The website remains the canonical company gateway.</h2><p>Product discovery, licensing and checkout stay on <strong>store.skunkworksau.com.au</strong>. Corporate, solutions and ecosystem navigation stay on <strong>www.skunkworksau.com.au</strong>.</p></div><div class="route-list"><a href="https://store.skunkworksau.com.au/"><strong>Store</strong><span>Products, licensing and checkout →</span></a><a href="https://www.skunkworksacademy.com/"><strong>Academy</strong><span>Training, labs and certification →</span></a><a href="#contact"><strong>Projects &amp; consulting</strong><span>Architecture, delivery and managed services →</span></a></div></div></section>
-
-    <section class="section shell" id="services"><div class="section-heading"><p class="eyebrow">Services</p><h2>Commercial technology delivery beyond the catalogue.</h2></div><div class="service-grid"><div><h3>Architecture &amp; Delivery</h3><p>Solution design, implementation, integration and modernisation.</p></div><div><h3>Managed Operations</h3><p>Cloud, infrastructure, security and platform operations support.</p></div><div><h3>Enablement</h3><p>Training, adoption, documentation and practical capability transfer.</p></div></div></section>
-
-    <section class="section shell" id="company"><div class="company-grid"><div><p class="eyebrow">Company</p><h2>One Skunkworks experience across technology and learning.</h2></div><div><p>Skunkworks Australia connects technology sourcing and solution delivery with the Skunkworks Academy learning ecosystem, and is part of the wider Skunkworks group alongside Skunkworks Africa.</p><ul><li>www.skunkworksau.com.au — corporate gateway</li><li>store.skunkworksau.com.au — commerce and checkout</li><li>www.skunkworksacademy.com — learning gateway</li></ul></div></div></section>
-
-    <section class="cta shell" id="contact"><div><p class="eyebrow">Start here</p><h2>Need products, a project or a learning pathway?</h2></div><div class="actions"><a class="button button-inverse" href="mailto:info@skunkworksau.com.au">Contact us</a><a class="button button-outline-inverse" href="https://store.skunkworksau.com.au/">Visit the store</a><a class="button button-outline-inverse" href="https://www.skunkworksacademy.com/">Open Academy</a></div></section>
-  </main>
-
-  <footer class="site-footer" aria-label="Skunkworks Australia footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="./" aria-label="Skunkworks Australia home">
-          <img class="brand-mark" src="assets/logo-white.svg" alt="" width="34" height="34" aria-hidden="true">
-          <span><strong>Skunkworks</strong><small>Australia</small></span>
-        </a>
-        <p>Cloud, AI, cybersecurity, software, infrastructure and practical skills development for Australian organisations.</p>
+      <div class="band b1" data-a="0" data-b="0.22">
+        <h1 class="split">Your business technology, sorted.</h1>
+        <p class="sub">Local IT for small businesses in the Colac Otway region. Microsoft 365, websites, automation, training and security, from one team that explains it in plain English.</p>
+      </div>
+      <div class="band b2" data-a="0.27" data-b="0.49" aria-hidden="true">
+        <h2 class="split">Email that just works. Files you can find. Backups you can trust.</h2>
+      </div>
+      <div class="band b3" data-a="0.53" data-b="0.75" aria-hidden="true">
+        <h2 class="split">One local team for all of it.</h2>
+        <p class="sub">No call centres. No jargon. No lock-in.</p>
+      </div>
+      <div class="band b4" data-a="0.79" data-b="1.01">
+        <h2 class="split">Start with a free tech check-up.</h2>
+        <p class="sub">We come to your business, look over the tech it runs on, and give you a plain-English report of what to fix first.</p>
+        <div class="row sub">
+          <a class="btn btn-solid" href="#book">Book a free check-up <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-line" href="#services">See what we do</a>
+        </div>
       </div>
 
-      <nav aria-label="Explore">
-        <strong>Explore</strong>
-        <a href="#solutions">Solutions</a>
-        <a href="#services">Services</a>
-        <a href="https://store.skunkworksau.com.au/">Store</a>
-        <a href="#company">Company</a>
-      </nav>
-
-      <nav aria-label="Ecosystem">
-        <strong>Ecosystem</strong>
-        <a href="https://www.skunkworksacademy.com/">Skunkworks Academy</a>
-        <a href="https://www.skunkworks.africa/">Skunkworks Africa</a>
-      </nav>
-
-      <nav aria-label="Contact">
-        <strong>Contact</strong>
-        <a href="mailto:info@skunkworksau.com.au">info@skunkworksau.com.au</a>
-        <a href="#contact">Get in touch</a>
-      </nav>
+      <div class="cue mono" aria-hidden="true"><i></i>SCROLL</div>
+      <div class="meter" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></div>
     </div>
+  </div>
 
-    <div class="footer-bottom">
-      <span>© <span data-year></span> Skunkworks Australia. All rights reserved.</span>
+  <section class="s" id="services">
+    <div class="wrap">
+      <h2 class="h2 rv">Everything your business runs on.</h2>
+      <p class="lede rv d1">Most small businesses don’t have an IT person. They have a nephew, a forum thread and a lot of hold music. We’re the local alternative.</p>
+      <div class="svc">
+        <ul>
+          <li class="rv"><h3>Microsoft 365 &amp; everyday IT</h3><p>Email, Teams, OneDrive, licences, new laptops and the “why won’t it print” days. Set up properly, then looked after.</p></li>
+          <li class="rv"><h3>Online presence</h3><p>Websites, Google Business Profile, bookings and online shops. Easy for locals to find, easy for you to update.</p></li>
+          <li class="rv"><h3>Automation &amp; AI</h3><p>Hand the repetitive jobs to software: quotes, invoices, follow-ups. Plus AI tools your staff will actually use.</p></li>
+          <li class="rv"><h3>Security</h3><p>Two-step sign-in, password managers, backups you’ve tested, and staff who can spot a scam email before it costs you.</p></li>
+          <li class="rv"><h3>Skunkworks Academy</h3><p>Practical IT training for your team, and a pathway for anyone starting out in tech.</p></li>
+        </ul>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="site.js" defer></script>
+  <section class="s" id="check-up" style="padding-top:0">
+    <div class="wrap check">
+      <div>
+        <h2 class="h2 rv">The free tech check-up.</h2>
+        <p class="lede rv d1">Not sure what you’ve got, what it costs, or what’s risky? That’s normal, and it’s exactly what the check-up is for.</p>
+        <ol class="steps rv d2">
+          <li><div><b>Book a time</b><span>Pick a day that suits. It takes two minutes.</span></div></li>
+          <li><div><b>We come to you</b><span>We look over your computers, accounts, Wi‑Fi and online presence while you keep working.</span></div></li>
+          <li><div><b>You get a plain-English report</b><span>What’s fine, what’s risky, and what would save you time or money.</span></div></li>
+          <li><div><b>You decide what’s next</b><span>No obligation. The report is yours to keep either way.</span></div></li>
+        </ol>
+      </div>
+      <ul class="areas rv d1" aria-label="What the check-up covers">
+        <li><b>Email &amp; Microsoft 365</b><span>Accounts, sign-ins, spam and the settings that matter.</span></li>
+        <li><b>Computers &amp; phones</b><span>Age, updates, and what’s slowing you down.</span></li>
+        <li><b>Backups</b><span>Where your files live, and whether you could get them back.</span></li>
+        <li><b>Wi‑Fi &amp; passwords</b><span>Who can get on, and how they sign in.</span></li>
+        <li><b>Website &amp; listings</b><span>How locals find you online, and what it says.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s statement">
+    <div class="wrap">
+      <p class="big rv">You run the business. <span>We’ll handle the tech.</span></p>
+      <p class="fact rv d1">One in three Australian small businesses think they’re too small to be targeted online. They aren’t, and the fixes are usually simple once someone looks.</p>
+    </div>
+  </section>
+
+  <section class="s" id="family">
+    <div class="wrap family">
+      <div>
+        <h2 class="h2 rv">Part of Skunkworks.</h2>
+        <p class="lede rv d1">Skunkworks Australia is the Australian chapter of Skunkworks Africa: one group across technology, commerce and learning. Locally run from Colac.</p>
+      </div>
+      <div class="routes rv d2">
+        <a href="https://store.skunkworksau.com.au"><div><b>Store</b><span>Products, licences and software</span></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 14L14 6M7 6h7v7"/></svg></a>
+        <a href="mailto:info@skunkworksau.com.au?subject=Skunkworks%20Academy"><div><b>Academy</b><span>IT training, labs and pathways</span></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 14L14 6M7 6h7v7"/></svg></a>
+        <a href="https://skunkworks.africa"><div><b>Skunkworks Africa</b><span>The wider Skunkworks group</span></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 14L14 6M7 6h7v7"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="faq" style="padding-top:0">
+    <div class="wrap faq">
+      <h2 class="h2 rv">Fair questions.</h2>
+      <div class="rv d1">
+        <details><summary>Is the check-up really free?<i aria-hidden="true"></i></summary><p>Yes. No cost and no obligation. It’s how we get to know your business.</p></details>
+        <details><summary>Will you try to sell me something?<i aria-hidden="true"></i></summary><p>We’ll tell you what we’d fix and roughly what it would cost. If you’d rather do it yourself or with someone else, the report is still yours.</p></details>
+        <details><summary>We’re a tiny business. Is it worth it?<i aria-hidden="true"></i></summary><p>Yes. Small teams often get the most out of a few simple fixes, because nobody has had time to look.</p></details>
+        <details><summary>Do we need to be on Microsoft 365?<i aria-hidden="true"></i></summary><p>No. Plenty of local businesses are, and we know it well, but we’ll work with whatever you use now.</p></details>
+        <details><summary>How long does it take?<i aria-hidden="true"></i></summary><p>Usually about an hour at your business. You can keep working while we look.</p></details>
+        <details><summary>Where do you work?<i aria-hidden="true"></i></summary><p>Colac and the wider Colac Otway area. If you’re further out, ask anyway.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="book" style="padding-top:0">
+    <div class="wrap book" id="bookwrap">
+      <div>
+        <h2 class="h2 rv">Book your free check-up.</h2>
+        <p class="lede rv d1">Tell us a little about your business and when suits. We’ll get back to you to lock in a time.</p>
+      </div>
+      <div class="rv d1">
+        <form id="form" novalidate>
+          <div class="f"><label for="n">Your name</label><input id="n" name="name" autocomplete="name" required></div>
+          <div class="f"><label for="b">Business name</label><input id="b" name="business" autocomplete="organization" required></div>
+          <div class="f"><label for="c">Email or phone</label><input id="c" name="contact" autocomplete="email" required></div>
+          <div class="f"><label for="t">Best time for a visit</label>
+            <select id="t" name="time"><option>Any time</option><option>Mornings</option><option>Afternoons</option><option>After hours</option></select></div>
+          <div class="f wide"><label for="m">What’s on your mind? <span style="color:var(--text-3)">(optional)</span></label><textarea id="m" name="message" placeholder="e.g. Our email keeps going to spam, and we’re not sure the backups work."></textarea></div>
+          <p class="err f wide" id="err" role="alert"></p>
+          <button class="btn btn-solid" type="submit">Send my request <span class="arr" aria-hidden="true">&rarr;</span></button>
+          <p class="formnote">This opens your email app with your request filled in, addressed to info@skunkworksau.com.au. Nothing is stored on this website.</p>
+        </form>
+        <div class="sent" id="sent" tabindex="-1">
+          <h3>Nearly there.</h3>
+          <p>Your email app should have opened with your request ready to go. Hit send and we’ll be in touch. If nothing opened, email us at <a href="mailto:info@skunkworksau.com.au">info@skunkworksau.com.au</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><img src="assets/skunk-mark.png" alt="" width="34" height="31"><div><b>Skunkworks</b><span>AUSTRALIA</span></div></a>
+      <p style="margin:18px 0 0;max-width:36ch">Local IT for small businesses. Based in Colac, Victoria.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="mailto:info@skunkworksau.com.au">info@skunkworksau.com.au</a>
+      <a href="https://store.skunkworksau.com.au">Store</a>
+      <a href="https://skunkworks.africa">Skunkworks Africa</a>
+    </nav>
+  </div>
+  <div class="wrap fine">© 2026 Skunkworks Australia. A Skunkworks Africa chapter.</div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var root=document.documentElement; root.classList.add('js');
+  var studio=document.getElementById('studio');
+  var hero=document.querySelector('.hero');
+  var bands=[].slice.call(document.querySelectorAll('.band'));
+  var meter=[].slice.call(document.querySelectorAll('.meter b'));
+  var nav=document.getElementById('nav');
+  var smooth=function(p,e0,e1){var t=Math.min(1,Math.max(0,(p-e0)/(e1-e0)));return t*t*(3-2*t)};
+  var clamp=function(v,a,b){return Math.min(b,Math.max(a,v))};
+
+  // Split headlines into word spans for the assembly entrance (screen readers get the plain text).
+  document.querySelectorAll('.split').forEach(function(el){
+    var text=el.textContent.trim(); var words=text.split(/\s+/);
+    el.setAttribute('aria-label',text);
+    el.innerHTML=words.map(function(w,i){return '<span class="w" aria-hidden="true" style="--i:'+i+'">'+w+'</span>'}).join(' ');
+  });
+
+  // Hero gates: must match the CSS media query list exactly.
+  var GATES=['(max-width: 720px)','(orientation: portrait) and (max-width: 1024px)','(orientation: portrait) and (pointer: coarse)','(orientation: landscape) and (pointer: coarse) and (max-height: 560px)','(prefers-reduced-motion: reduce)'];
+  var MQLS=GATES.map(function(q){return matchMedia(q)});
+  var scrubOn=false, rafId=null, target=0, shown=0, lastTick=0, heroOnScreen=true, loadK=0, loadStart=0;
+  bands.forEach(function(b){b.a=+b.dataset.a;b.b=+b.dataset.b;b.op=-1;b.k=-1});
+  var last={sx:'',lit:'',p:'',meter:-1};
+
+  function heroProgress(){
+    var r=hero.getBoundingClientRect(); var range=hero.offsetHeight-innerHeight;
+    return range>0?clamp(-r.top/range,0,1):0;
+  }
+  function render(p){
+    // Light sweep crosses the mark between 4% and 58%, then the studio lights come up.
+    var sweep=smooth(p,0.04,0.58), lit=smooth(p,0.5,0.86);
+    var sx=(-130+sweep*300).toFixed(1)+'%';
+    if(sx!==last.sx){studio.style.setProperty('--sx',sx);last.sx=sx}
+    var l=lit.toFixed(3); if(l!==last.lit){studio.style.setProperty('--lit',l);last.lit=l}
+    var pp=p.toFixed(3); if(pp!==last.p){document.getElementById('stage').style.setProperty('--p',pp);last.p=pp}
+    var active=0;
+    bands.forEach(function(b,n){
+      var a=b.a,e=b.b,f=Math.min(0.025,(e-a)/3);
+      var op=(n===0?1:smooth(p,a,a+f))*(n===bands.length-1?1:(1-smooth(p,e-f,e)));
+      var k=clamp((p-a)/Math.min(0.06,(e-a)*0.4),0,1);
+      if(n===0) k=Math.max(k,loadK); // band one assembles on load, then holds
+      if(Math.abs(op-b.op)>0.004){b.style.opacity=op.toFixed(3);b.op=op;b.style.visibility=op<0.01?'hidden':'visible'}
+      if(Math.abs(k-b.k)>0.008){b.style.setProperty('--k',k.toFixed(3));b.k=k}
+      if(p>=a) active=n;
+    });
+    if(active!==last.meter){meter.forEach(function(m,i){m.classList.toggle('on',i<=active)});last.meter=active}
+  }
+  function tick(now){
+    var dt=Math.min(100,now-(lastTick||now)); lastTick=now;
+    if(loadK<1){loadK=clamp((now-loadStart)/1100,0,1);loadK=1-Math.pow(1-loadK,3)}
+    shown+=(target-shown)*(1-Math.pow(1-0.14,dt/16.667));
+    if(Math.abs(target-shown)<0.0004 && loadK>=1){shown=target;rafId=null;lastTick=0}
+    else rafId=requestAnimationFrame(tick);
+    render(shown);
+  }
+  function kick(){if(rafId===null && heroOnScreen && scrubOn) rafId=requestAnimationFrame(tick)}
+  function onScroll(){target=heroProgress();kick()}
+  function enableScrub(){
+    if(scrubOn) return; scrubOn=true;
+    bands.forEach(function(b){b.op=-1;b.k=-1;b.style.visibility=''});
+    last={sx:'',lit:'',p:'',meter:-1};
+    addEventListener('scroll',onScroll,{passive:true});
+    target=shown=heroProgress(); loadStart=performance.now(); kick();
+  }
+  function disableScrub(){
+    if(!scrubOn) return; scrubOn=false;
+    removeEventListener('scroll',onScroll);
+    if(rafId!==null){cancelAnimationFrame(rafId);rafId=null}
+    // Hand control back to CSS: the static hero is fully lit and settled.
+    ['--sx','--lit','--p'].forEach(function(v){studio.style.removeProperty(v);document.getElementById('stage').style.removeProperty(v)});
+    bands.forEach(function(b){b.style.removeProperty('opacity');b.style.removeProperty('visibility');b.style.removeProperty('--k')});
+  }
+  function applyHeroMode(){ if(MQLS.some(function(m){return m.matches})) disableScrub(); else enableScrub() }
+  MQLS.forEach(function(m){m.addEventListener('change',applyHeroMode)});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){heroOnScreen=es[0].isIntersecting;kick()}).observe(hero);
+  }
+  applyHeroMode();
+
+  // Nav turns solid once past the top of the hero.
+  var navSolid=null;
+  function navState(){var s=scrollY>innerHeight*0.6;if(s!==navSolid){nav.classList.toggle('solid',s);navSolid=s}}
+  addEventListener('scroll',navState,{passive:true}); navState();
+
+  // Section entrances: once, then retire the stagger so hovers are instant.
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting) return; var el=e.target; el.classList.add('in'); io.unobserve(el);
+      setTimeout(function(){el.classList.add('settled')},1400);
+    })},{rootMargin:'0px 0px -12% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  } else rv.forEach(function(el){el.classList.add('in','settled')});
+
+  // Pause looping animations on hidden tabs.
+  document.addEventListener('visibilitychange',function(){document.body.classList.toggle('paused',document.hidden)});
+
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',function(e){ if(e.matches) rv.forEach(function(el){el.classList.add('in','settled')}) });
+
+  // Booking form: builds an email to info@ (no backend on this site).
+  var form=document.getElementById('form'), err=document.getElementById('err');
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.textContent='';
+    var missing=[].slice.call(form.querySelectorAll('[required]')).filter(function(i){return !i.value.trim()});
+    if(missing.length){err.textContent='Please fill in your name, business and a way to reach you.';missing[0].focus();return}
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var body='Hi Skunkworks,\n\nI\'d like to book a free tech check-up.\n\nName: '+v('n')+'\nBusiness: '+v('b')+'\nContact: '+v('c')+'\nBest time: '+v('t')+(v('m')?'\n\nWhat\'s on my mind:\n'+v('m'):'')+'\n';
+    location.href='mailto:info@skunkworksau.com.au?subject='+encodeURIComponent('Free tech check-up: '+v('b'))+'&body='+encodeURIComponent(body);
+    document.getElementById('bookwrap').classList.add('done');
+    document.getElementById('sent').focus();
+  });
+})();
+</script>
 </body>
 </html>
