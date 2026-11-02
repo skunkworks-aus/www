@@ -2,13 +2,13 @@
   "version": 1,
   "canonicalHosts": {
     "corporate": "https://www.skunkworksau.com",
-    "store": "https://store.skunkworksau.com.au",
+    "store": "https://store.skunkworksau.com",
     "academy": "https://www.skunkworksacademy.com",
     "globalAfrica": "https://www.skunkworks.africa"
   },
   "rules": [
     "Corporate identity, solutions and services content belong on www.skunkworksau.com.",
-    "Product discovery, licensing and checkout belong on store.skunkworksau.com.au.",
+    "Product discovery, licensing and checkout belong on store.skunkworksau.com.",
     "Training catalogues, labs, credentials, and learner services belong on www.skunkworksacademy.com.",
     "Skunkworks Africa ecosystem content belongs on www.skunkworks.africa.",
     "Every indexable page must emit a self-referencing canonical URL.",
@@ -18,7 +18,7 @@
   "primaryNavigation": [
     {"label": "Solutions", "url": "/#solutions", "surface": "corporate"},
     {"label": "Services", "url": "/#services", "surface": "corporate"},
-    {"label": "Store", "url": "https://store.skunkworksau.com.au/", "surface": "store"},
+    {"label": "Store", "url": "https://store.skunkworksau.com/", "surface": "store"},
     {"label": "Academy", "url": "https://www.skunkworksacademy.com/", "surface": "academy"},
     {"label": "Company", "url": "/#company", "surface": "corporate"},
     {"label": "Contact", "url": "/#contact", "surface": "corporate"}
