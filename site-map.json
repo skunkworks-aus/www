@@ -1,13 +1,13 @@
 {
   "version": 1,
   "canonicalHosts": {
-    "corporate": "https://www.skunkworksau.com.au",
+    "corporate": "https://www.skunkworksau.com",
     "store": "https://store.skunkworksau.com.au",
     "academy": "https://www.skunkworksacademy.com",
     "globalAfrica": "https://www.skunkworks.africa"
   },
   "rules": [
-    "Corporate identity, solutions and services content belong on www.skunkworksau.com.au.",
+    "Corporate identity, solutions and services content belong on www.skunkworksau.com.",
     "Product discovery, licensing and checkout belong on store.skunkworksau.com.au.",
     "Training catalogues, labs, credentials, and learner services belong on www.skunkworksacademy.com.",
     "Skunkworks Africa ecosystem content belongs on www.skunkworks.africa.",
