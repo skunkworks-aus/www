@@ -121,7 +121,7 @@
     if(missing.length){err.textContent='Please fill in your name, business and a way to reach you.';missing[0].focus();return}
     var v=function(id){return document.getElementById(id).value.trim()};
     var body='Hi Skunkworks,\n\nI\'d like to book a free tech check-up.\n\nName: '+v('n')+'\nBusiness: '+v('b')+'\nContact: '+v('c')+'\nBest time: '+v('t')+(v('m')?'\n\nWhat\'s on my mind:\n'+v('m'):'')+'\n';
-    location.href='mailto:info@skunkworksau.com.au?subject='+encodeURIComponent('Free tech check-up: '+v('b'))+'&body='+encodeURIComponent(body);
+    location.href='mailto:info@skunkworksau.com?subject='+encodeURIComponent('Free tech check-up: '+v('b'))+'&body='+encodeURIComponent(body);
     document.getElementById('bookwrap').classList.add('done');
     document.getElementById('sent').focus();
   });
