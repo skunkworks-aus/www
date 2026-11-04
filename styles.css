@@ -70,7 +70,7 @@ html.menu-open{overflow:hidden}
 @media (max-width:420px){.links .btn .long{display:none}.links .btn .short{display:inline}}
 
 /* ---------- HERO: the studio reveal ---------- */
-.hero{position:relative;height:520vh}
+.hero{position:relative;height:310vh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .studio{position:absolute;inset:0}
 .pool{position:absolute;left:50%;bottom:-8vh;width:120vw;height:46vh;transform:translateX(-30%);background:radial-gradient(50% 50% at 50% 50%,rgba(237,237,234,.10),transparent 70%);opacity:calc(.25 + .75*var(--lit,0))}

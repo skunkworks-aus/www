@@ -50,7 +50,7 @@
   }
   function tick(now){
     var dt=Math.min(100,now-(lastTick||now)); lastTick=now;
-    if(loadK<1){loadK=clamp((now-loadStart)/1100,0,1);loadK=1-Math.pow(1-loadK,3)}
+    if(loadK<1){loadK=clamp((now-loadStart)/550,0,1);loadK=1-Math.pow(1-loadK,3)}
     shown+=(target-shown)*(1-Math.pow(1-0.14,dt/16.667));
     if(Math.abs(target-shown)<0.0004 && loadK>=1){shown=target;rafId=null;lastTick=0}
     else rafId=requestAnimationFrame(tick);
