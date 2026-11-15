@@ -12,18 +12,13 @@
     "Training catalogues, labs, credentials, and learner services belong on www.skunkworksacademy.com.",
     "Skunkworks Africa ecosystem content belongs on www.skunkworks.africa.",
     "Every indexable page must emit a self-referencing canonical URL.",
-    "Primary navigation is Services, Projects, About, Contact and Free tech check-up. Services also exposes Store and Academy.",
+    "Primary navigation is Services, About, Contact and Free tech check-up. Projects is temporarily hidden. Services also exposes Store and Academy.",
     "Mobile navigation must expose the same primary destinations as desktop navigation."
   ],
   "primaryNavigation": [
     {
       "label": "Services",
       "url": "/services.html",
-      "surface": "corporate"
-    },
-    {
-      "label": "Projects",
-      "url": "/projects.html",
       "surface": "corporate"
     },
     {
