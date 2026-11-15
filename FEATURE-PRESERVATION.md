@@ -27,3 +27,9 @@ The old website did not have a form backend; it opened an email app. This releas
 ## Rollback
 
 Revert the release merge commit in a new PR to restore the previous tracked source, then verify the GitHub Pages build. Avoid resetting shared history. Check for later changes before any rollback.
+
+## Minimal homepage refinement — 16 November 2026
+
+The homepage now contains one offer, a primary contact action, a quieter check-up link, three service routes and local contact details. Workflow animation, website previews and sample reports remain on their service pages. General FAQs moved to services.html#faq and all shared Questions links point there. Earlier home FAQ/group bookmarks forward to the corresponding inner pages; Store/Academy/group links remain accessible. Forrest General Store remains hidden at the user’s request.
+
+Validation for this refinement: local references/anchors/metadata and JS syntax passed; legacy bookmark routing checked with synthetic locations. Phone styling uses a single-column service list at 800px and stacked actions below 480px, without fixed-width content or pinned motion. Browser automation was unavailable in this session, so new rendered phone screenshots and physical-device testing were not performed.
