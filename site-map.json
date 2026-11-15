@@ -12,15 +12,44 @@
     "Training catalogues, labs, credentials, and learner services belong on www.skunkworksacademy.com.",
     "Skunkworks Africa ecosystem content belongs on www.skunkworks.africa.",
     "Every indexable page must emit a self-referencing canonical URL.",
-    "Navigation order is Solutions, Services, Store, Academy, Company, Contact.",
+    "Primary navigation is Services, Projects, About, Contact and Free tech check-up. Services also exposes Store and Academy.",
     "Mobile navigation must expose the same primary destinations as desktop navigation."
   ],
   "primaryNavigation": [
-    {"label": "Solutions", "url": "/#solutions", "surface": "corporate"},
-    {"label": "Services", "url": "/#services", "surface": "corporate"},
-    {"label": "Store", "url": "https://store.skunkworksau.com/", "surface": "store"},
-    {"label": "Academy", "url": "https://www.skunkworksacademy.com/", "surface": "academy"},
-    {"label": "Company", "url": "/#company", "surface": "corporate"},
-    {"label": "Contact", "url": "/#contact", "surface": "corporate"}
+    {
+      "label": "Services",
+      "url": "/services.html",
+      "surface": "corporate"
+    },
+    {
+      "label": "Projects",
+      "url": "/projects.html",
+      "surface": "corporate"
+    },
+    {
+      "label": "About",
+      "url": "/about.html",
+      "surface": "corporate"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact.html",
+      "surface": "corporate"
+    },
+    {
+      "label": "Free tech check-up",
+      "url": "/checkup.html",
+      "surface": "corporate"
+    },
+    {
+      "label": "Store",
+      "url": "https://store.skunkworksau.com/",
+      "surface": "store"
+    },
+    {
+      "label": "Academy",
+      "url": "https://www.skunkworksacademy.com/",
+      "surface": "academy"
+    }
   ]
 }
