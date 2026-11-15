@@ -9,6 +9,8 @@
 .landing-actions{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px 26px;margin-top:30px}
 .landing-actions .button{min-height:50px;gap:24px;padding:15px 24px;font-size:14px}
 .landing-actions>a:not(.button){display:inline-flex;align-items:center;min-height:44px;font-size:13px;line-height:1.5;text-decoration-color:#ffffff45}
+.landing-checkup{margin:8px 0 0;font-size:12px;line-height:1.5}
+.landing-checkup>a{display:inline-flex;align-items:center;min-height:44px;color:#b8b8b4;text-decoration-color:#ffffff45}
 .landing-services{padding:0 6% 48px}
 .landing-services>h2{font-size:14px;letter-spacing:0;font-weight:450;color:#a3a3a0;margin:0 0 18px}
 .service-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid #ffffff25}

@@ -9,11 +9,32 @@ const topic=document.querySelector('#topic'),requested=new URLSearchParams(locat
 if(defaultTopic)topic.value=defaultTopic;
 if(requested){if([...topic.options].some(o=>o.value===requested))topic.value=requested;else{topic.value=defaultTopic||'Business IT';form.elements.message.value='I would like help with: '+requested.slice(0,300)+'.';}}
 const visit=document.querySelector('#visit-preference');const updateVisit=()=>{visit.hidden=topic.value!=='Free check-up'};topic.addEventListener('change',updateVisit);updateVisit();
-const result=document.querySelector('#draft-result'),errors=document.createElement('p');errors.className='form-error';errors.setAttribute('role','alert');form.querySelector('button[type="submit"]').before(errors);
-let prepared='';form.addEventListener('input',e=>{if(!e.target.closest('#draft-result'))result.hidden=true;errors.textContent=''});
-form.addEventListener('submit',e=>{e.preventDefault();errors.textContent='';if(!form.reportValidity())return;const missing=[...form.querySelectorAll('[required]')].find(el=>!el.value.trim());if(missing){errors.textContent='Please enter your name, a way to contact you and the details of your enquiry.';missing.focus();return;}
- const v=new FormData(form),isVisit=topic.value==='Free check-up';prepared=['Hi Skunkworks,','',isVisit?'I would like to arrange a free tech check-up.':'I would like help with: '+topic.value+'.','','Name: '+v.get('name'),'Business: '+(v.get('business')||'Not supplied'),'Email or phone: '+v.get('contact'),...(isVisit?['Preferred time for a visit: '+v.get('time')]:[]),'','What is on my mind:',v.get('message')||'Please contact me to discuss.'].join('\n');
- document.querySelector('#draft-text').value=prepared;result.hidden=false;document.querySelector('#copy-status').textContent='';document.querySelector('#open-email').href='mailto:info@skunkworksau.com?subject='+encodeURIComponent(isVisit?'Free tech check-up request':'Skunkworks enquiry — '+topic.value)+'&body='+encodeURIComponent(prepared);result.querySelector('h3').setAttribute('tabindex','-1');result.querySelector('h3').focus();
+const context=document.querySelector('#enquiry-context');
+const updateContext=()=>{context.hidden=topic.value==='Not sure';context.textContent='Enquiry about: '+topic.value};topic.addEventListener('change',updateContext);updateContext();
+const result=document.querySelector('#enquiry-result'),errors=document.querySelector('#form-error'),submit=form.querySelector('button[type="submit"]');
+const originalLabel=submit.textContent;let sending=false,completed=false;
+form.addEventListener('input',()=>{if(!completed){result.hidden=true;errors.textContent=''}});
+form.addEventListener('submit',async e=>{
+ e.preventDefault();if(sending||completed)return;errors.textContent='';result.hidden=true;
+ if(!form.reportValidity())return;
+ const missing=[...form.querySelectorAll('[required]')].find(el=>!el.value.trim());
+ if(missing){errors.textContent='Please enter your name, a way to contact you and a short message.';missing.focus();return;}
+ const v=new FormData(form);if(v.get('_honey'))return;
+ const contact=String(v.get('contact')).trim(),isVisit=topic.value==='Free check-up';
+ const payload={name:String(v.get('name')).trim(),contact,message:String(v.get('message')).trim()||'Please contact me to discuss a free tech check-up.',topic:topic.value,_subject:isVisit?'Free tech check-up request':'Skunkworks enquiry — '+topic.value,_template:'table',_honey:''};
+ if(v.get('business')?.trim())payload.business=String(v.get('business')).trim();
+ if(isVisit)payload.time=String(v.get('time'));
+ if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact))payload._replyto=contact;
+ sending=true;submit.disabled=true;submit.textContent='Sending…';form.setAttribute('aria-busy','true');
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
+ try{
+  const response=await fetch('https://formsubmit.co/ajax/info@skunkworksau.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload),signal:controller.signal});
+  if(!response.ok)throw new Error('service-unavailable');const data=await response.json();
+  if(data.success!==true&&data.success!=='true')throw new Error('not-accepted');
+  completed=true;result.textContent=isVisit?'Thanks — your check-up request has been sent. We will contact you to agree a visit time.':'Thanks — your enquiry has been sent. We will get back to you to discuss the next step.';result.hidden=false;result.focus();submit.textContent='Enquiry sent';
+ }catch(error){
+  errors.textContent=error.name==='AbortError'?'We could not confirm delivery. Your details are still here. Please call 0493 240 070 or email info@skunkworksau.com before trying again.':'Your enquiry could not be confirmed. Your details are still here. Please try again, call 0493 240 070 or email info@skunkworksau.com.';
+  submit.disabled=false;submit.textContent=originalLabel;
+ }finally{clearTimeout(timeout);sending=false;form.removeAttribute('aria-busy')}
 });
-document.querySelector('#copy-draft').onclick=async()=>{const status=document.querySelector('#copy-status');try{await navigator.clipboard.writeText(prepared);status.textContent='Enquiry copied.'}catch{document.querySelector('#draft-text').focus();document.querySelector('#draft-text').select();status.textContent='Select and copy the prepared enquiry above.'}};
 })();

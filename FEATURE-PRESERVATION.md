@@ -33,3 +33,11 @@ Revert the release merge commit in a new PR to restore the previous tracked sour
 The homepage now contains one offer, a primary contact action, a quieter check-up link, three service routes and local contact details. Workflow animation, website previews and sample reports remain on their service pages. General FAQs moved to services.html#faq and all shared Questions links point there. Earlier home FAQ/group bookmarks forward to the corresponding inner pages; Store/Academy/group links remain accessible. Forrest General Store remains hidden at the user’s request.
 
 Validation for this refinement: local references/anchors/metadata and JS syntax passed; legacy bookmark routing checked with synthetic locations. Phone styling uses a single-column service list at 800px and stacked actions below 480px, without fixed-width content or pinned motion. Browser automation was unavailable in this session, so new rendered phone screenshots and physical-device testing were not performed.
+
+## Contact refinements — 16 November 2026
+
+Homepage automation now gives concrete enquiry/follow-up/admin examples. The main action is Get in touch, with a direct call option and quieter check-up link. Projects links are hidden throughout the site; the retained page is noindex and removed from the sitemap.
+
+User approved the free FormSubmit service for info@skunkworksau.com and confirmed activation. One clearly labelled setup submission was accepted by the service; this is not proof of mailbox delivery. Contact/booking now submit directly, preserve email-or-phone and legacy topic/time options, and provide success only on explicit provider acceptance. Failure/timeout preserves entered details and offers direct contact. Duplicate sending is prevented. Native POST is retained when JavaScript is unavailable. Privacy now discloses FormSubmit processing and its documented archive.
+
+Validation: 13-page reference/anchor/metadata checks, syntax and eight isolated enquiry-flow tests pass. Tests cover success, email/phone handling, legacy booking, activation/HTTP failures, timeout, duplicate clicks and required/spam fields, without sending email. Browser automation is unavailable: responsive source reviewed; no rendered phone/Safari verification.
