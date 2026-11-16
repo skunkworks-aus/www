@@ -21,8 +21,7 @@
 .landing-checkup>a{display:inline-flex;align-items:center;min-height:44px;color:#e2e2df;text-decoration-color:#ffffff80}
 :root[data-theme=light] .landing-hero{background:var(--site-bg);color:var(--site-text)}
 :root[data-theme=light] .landing-hero::after{background:none}
-:root[data-theme=light] .landing-hero-media{mask-image:linear-gradient(180deg,transparent,#000 24px,#000 calc(100% - 40px),transparent)}
-:root[data-theme=light] .landing-hero-media img{mask-image:linear-gradient(90deg,transparent 28%,rgba(0,0,0,.08) 44%,rgba(0,0,0,.42) 54%,#000 68%)}
+:root[data-theme=light] .landing-hero-media{display:none}
 :root[data-theme=light] .landing-hero .eyebrow{color:var(--site-text)}
 :root[data-theme=light] .landing-intro,:root[data-theme=light] .landing-checkup>a{color:var(--site-secondary)}
 :root[data-theme=light] .landing-hero .button{background:var(--site-text);color:var(--site-bg)}
@@ -54,7 +53,6 @@
  .landing-hero-copy{padding:0;max-width:600px}
  .landing-hero-media img{object-position:30% center}
  .landing-hero::after{background:linear-gradient(180deg,var(--site-bg),transparent 24px,transparent calc(100% - 40px),var(--site-bg)),linear-gradient(90deg,rgba(8,8,9,.8),rgba(8,8,9,.65) 50%,rgba(8,8,9,.55))}
- :root[data-theme=light] .landing-hero-media img{mask-image:linear-gradient(90deg,rgba(0,0,0,.04),rgba(0,0,0,.12) 45%,rgba(0,0,0,.35) 85%,rgba(0,0,0,.48))}
  :root[data-theme=light] .landing-intro,:root[data-theme=light] .landing-checkup>a{color:var(--site-text)}
  .landing-hero .eyebrow{font-size:9px;margin-bottom:19px}
  .landing-hero h1{font-size:clamp(30px,9.5vw,48px);line-height:1.08}
