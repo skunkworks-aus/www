@@ -19,7 +19,8 @@
 .landing-actions>a:not(.button){display:inline-flex;align-items:center;min-height:44px;font-size:13px;line-height:1.5;text-decoration-color:#ffffff80}
 .landing-checkup{margin:8px 0 0;font-size:12px;line-height:1.5}
 .landing-checkup>a{display:inline-flex;align-items:center;min-height:44px;color:#e2e2df;text-decoration-color:#ffffff80}
-:root[data-theme=light] .landing-hero{background:var(--site-bg);color:var(--site-text)}
+:root[data-theme=light] .landing-hero{background:var(--site-bg);color:var(--site-text);display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);column-gap:clamp(32px,4vw,64px)}
+:root[data-theme=light] .landing-hero h1{font-size:clamp(40px,4.5vw,68px)}
 :root[data-theme=light] .landing-hero::after{background:none}
 :root[data-theme=light] .landing-hero-media{display:none}
 :root[data-theme=light] .landing-hero .eyebrow{color:var(--site-text)}
@@ -27,6 +28,26 @@
 :root[data-theme=light] .landing-hero .button{background:var(--site-text);color:var(--site-bg)}
 :root[data-theme=light] .landing-actions>a:not(.button),:root[data-theme=light] .landing-checkup>a{text-decoration-color:var(--site-line-strong)}
 :root[data-theme=light] .landing-hero :focus-visible{outline-color:var(--site-text)}
+.landing-orbit{display:none}
+:root[data-theme=light] .landing-orbit{display:grid;justify-items:center;align-self:center;gap:25px;min-width:0;width:100%;max-width:460px;justify-self:end}
+.orbit-scene{position:relative;width:100%;aspect-ratio:1;border:1px solid var(--site-line);border-radius:50%;background:radial-gradient(circle,var(--site-hover) 0 35%,transparent 35.5%);pointer-events:none}
+.orbit-scene::before,.orbit-scene::after{content:'';position:absolute;background:var(--site-line)}
+.orbit-scene::before{height:1px;width:124%;left:-12%;top:50%}
+.orbit-scene::after{width:1px;height:124%;top:-12%;left:50%}
+.orbit-ring{position:absolute;border:1px solid var(--site-line);border-radius:50%;inset:12%;animation:hero-orbit 24s linear infinite}
+.orbit-ring::after{content:'';position:absolute;left:50%;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--site-text)}
+.orbit-ring-inner{inset:24%;animation-duration:16s;animation-direction:reverse}
+.orbit-ring-inner::after{top:50%;left:auto;right:-4px}
+.orbit-emblem{position:absolute;z-index:1;inset:30%;display:grid;place-items:center;background:var(--site-bg);border:1px solid var(--site-line);border-radius:22px;box-shadow:0 18px 55px #0000000d;transform:rotate(-7deg)}
+.orbit-emblem img{display:block;width:64%;height:64%;object-fit:contain;filter:invert(1)}
+.orbit-signal,.orbit-signal-au{position:absolute;z-index:2;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--site-line);background:var(--site-bg);font:600 11px/1 Geist,Arial,sans-serif;color:var(--site-text)}
+.orbit-signal-one{top:9%;right:7%}
+.orbit-signal-au{bottom:8%;left:5%}
+.orbit-signal-arrow{right:-2%;bottom:29%;font-size:18px}
+.orbit-motion-toggle{border:0;background:none;color:var(--site-secondary);font:12px/1.5 Geist,Arial,sans-serif;min-height:44px;padding:10px 16px;text-decoration:underline;text-underline-offset:4px}
+.orbit-paused .orbit-ring{animation-play-state:paused}
+@keyframes hero-orbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.orbit-ring{animation:none}.orbit-motion-toggle{display:none}}
 .landing-services{padding:0 6% 48px}
 .landing-services>h2{font-size:14px;letter-spacing:0;font-weight:450;color:var(--site-muted);margin:0 0 18px}
 .service-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--site-line)}
@@ -53,6 +74,12 @@
  .landing-hero-copy{padding:0;max-width:600px}
  .landing-hero-media img{object-position:30% center}
  .landing-hero::after{background:linear-gradient(180deg,var(--site-bg),transparent 24px,transparent calc(100% - 40px),var(--site-bg)),linear-gradient(90deg,rgba(8,8,9,.8),rgba(8,8,9,.65) 50%,rgba(8,8,9,.55))}
+ :root[data-theme=light] .landing-hero{grid-template-columns:minmax(0,1fr);row-gap:50px;min-height:0;padding-block:48px 54px}
+ :root[data-theme=light] .landing-hero h1{font-size:clamp(30px,9.5vw,48px)}
+ :root[data-theme=light] .landing-orbit{width:min(76vw,360px);max-width:none;justify-self:center;margin-top:22px;gap:18px}
+ .orbit-signal,.orbit-signal-au{width:40px;height:40px;font-size:10px}
+ .orbit-signal-arrow{font-size:17px}
+ .orbit-emblem{border-radius:17px}
  :root[data-theme=light] .landing-intro,:root[data-theme=light] .landing-checkup>a{color:var(--site-text)}
  .landing-hero .eyebrow{font-size:9px;margin-bottom:19px}
  .landing-hero h1{font-size:clamp(30px,9.5vw,48px);line-height:1.08}
