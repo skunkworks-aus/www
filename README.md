@@ -11,3 +11,5 @@ Existing fonts, icons, social image, domain configuration and theme-sync workflo
 See `FEATURE-PRESERVATION.md` for the merge inventory and rollback approach.
 
 Run `node --test scripts/test-enquiry.mjs` to verify enquiry success, failure, duplicate-send prevention and topic/contact handling without sending email. The native form action provides a non-JavaScript fallback; AJAX stays on the page. Never report delivery on an unsuccessful provider response.
+
+The shared reference-style header uses `header.css`, `header.js` and the early `theme.js` preference loader. It includes a navigation drawer, Resources, local page search, a remembered light/dark setting, contact choices and ecosystem links. Theme colors in the page styles use `--site-*` variables; theme-sync source files remain unchanged. Projects remains hidden.
