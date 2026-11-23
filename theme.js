@@ -1,1 +1,1 @@
-(()=>{try{if(localStorage.getItem('skunkworks-theme')==='light')document.documentElement.dataset.theme='light'}catch{}})();
+(()=>{if(location.protocol==='http:'&&/(^|\.)skunkworksau\.com$/.test(location.hostname)){location.replace('https://www.skunkworksau.com'+location.pathname+location.search+location.hash);return}try{if(localStorage.getItem('skunkworks-theme')==='light')document.documentElement.dataset.theme='light'}catch{}})();
