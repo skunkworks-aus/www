@@ -35,7 +35,7 @@ jobs:
             curl --fail --location --silent --show-error --retry 3 "https://raw.githubusercontent.com/skunkworks-africa/theme/${THEME_SHA}/dist/${file}" -o "$file"
             test -s "$file"
           done
-      - uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+      - uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           add-paths: styles.css,adaptive-shell.css,hero-chat.css,tokens.css
